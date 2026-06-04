@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#2d3a28" />
+<title>Lara Flowers — Bespoke Bouquets in Tripoli, Lebanon</title>
+<meta name="description" content="Lara Flowers — bespoke bouquets, wedding florals and gifts handcrafted in Tripoli-Mina, North Lebanon. Rated 5.0 ★. Order easily on WhatsApp." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --paper:#f7f1e7;
+  --paper-2:#efe6d6;
+  --ink:#2d3a28;
+  --ink-soft:#54603f;
+  --moss:#3f5235;
+  --rose:#d4286e;
+  --rose-deep:#b31f5a;
+  --blush:#f5c6dc;
+  --gold:#c47d2a;
+  --wa:#1eb25a;
+  --shadow:36px 36px 80px -40px rgba(45,58,40,.45);
+  --r:18px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Raleway',sans-serif;
+  font-weight:400;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* grain + warm vignette overlay */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.04;letter-spacing:.005em}
+.serif-it{font-family:'Lora',serif;font-style:italic}
+
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 22px;position:relative;z-index:2}
+.eyebrow{
+  font-family:'Raleway',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--rose-deep);display:inline-flex;align-items:center;gap:.7em;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--rose);display:inline-block}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  font-family:'Raleway',sans-serif;font-weight:500;letter-spacing:.04em;font-size:.92rem;
+  padding:15px 26px;border-radius:999px;cursor:pointer;border:1px solid transparent;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,color .3s,box-shadow .3s;
+  min-height:48px;
+}
+.btn svg{width:18px;height:18px}
+.btn-wa{background:var(--moss);color:var(--paper);box-shadow:0 14px 30px -14px rgba(63,82,53,.8)}
+.btn-wa:hover{background:var(--ink);transform:translateY(-3px)}
+.btn-ghost{border-color:rgba(45,58,40,.35);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}
+
+/* ---------- nav ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  transition:background .4s,box-shadow .4s,padding .4s;padding:20px 0;
+}
+header.scrolled{background:rgba(247,241,231,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(45,58,40,.08);padding:12px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;letter-spacing:.02em;color:#fdfaf4;transition:color .4s}
+.brand .mark{width:38px;height:38px;flex:0 0 auto}
+.nav-links{display:none;gap:34px;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;position:relative;padding:4px 0;color:rgba(253,250,244,.88);transition:color .4s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--blush);transition:width .35s}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+/* scrolled state: dark text on light background */
+header.scrolled .brand{color:var(--ink)}
+header.scrolled .nav-links a{color:var(--ink-soft)}
+header.scrolled .nav-links a::after{background:var(--rose)}
+header.scrolled .nav-links a:hover{color:var(--ink)}
+/* nav CTA button adapts too */
+.nav-cta{display:none}
+@media(min-width:920px){.nav-links{display:flex}.nav-cta{display:inline-flex}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 18s ease-out forwards}
+@keyframes kenburns{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(28,36,24,.82) 0%,rgba(28,36,24,.32) 42%,rgba(28,36,24,.12) 75%,rgba(28,36,24,.35) 100%);}
+.hero-inner{padding-bottom:max(54px,7vh);padding-top:130px;color:var(--paper);width:100%}
+.hero .eyebrow{color:#f0d9d1}
+.hero .eyebrow::before{background:#f0d9d1}
+.hero h1{font-size:clamp(3.3rem,15vw,8.8rem);color:#fdfaf4;margin:.18em 0 .14em;max-width:14ch}
+.hero h1 em{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--blush)}
+.hero .arabic{font-size:clamp(1.4rem,6vw,2.4rem);font-family:'Lora',serif;color:#f0d9d1;direction:rtl;letter-spacing:0;opacity:.9;margin-bottom:.2em}
+.hero p.lede{max-width:46ch;font-size:clamp(1rem,4.2vw,1.18rem);font-weight:300;color:rgba(253,250,244,.92);margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero .btn-ghost{border-color:rgba(253,250,244,.5);color:#fdfaf4}
+.hero .btn-ghost:hover{background:#fdfaf4;color:var(--ink)}
+/* hero trust badge */
+.hero-trust{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:22px;
+  padding:11px 18px 11px 16px;
+  background:rgba(253,250,244,.13);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(253,250,244,.28);
+  border-radius:999px;
+  color:#fdfaf4;
+  font-size:.88rem;font-weight:400;
+  width:fit-content;
+}
+.trust-stars{color:#f5c842;letter-spacing:.1em;font-size:1rem;line-height:1}
+.trust-divider{width:1px;height:16px;background:rgba(253,250,244,.35);flex-shrink:0}
+.trust-text strong{font-weight:600}
+.trust-google{width:18px;height:18px;flex-shrink:0}
+
+.scroll-cue{position:absolute;bottom:22px;right:24px;z-index:3;display:flex;align-items:center;gap:10px;color:rgba(253,250,244,.8);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;writing-mode:vertical-rl}
+.scroll-cue span{display:block;width:1px;height:46px;background:rgba(253,250,244,.6);animation:cue 2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%,100%{transform:scaleY(.3);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+/* drifting petals */
+.petal{position:fixed;top:-8vh;z-index:3;pointer-events:none;color:var(--rose);opacity:0;animation:fall linear infinite}
+@keyframes fall{
+  0%{transform:translateY(-10vh) rotate(0);opacity:0}
+  10%{opacity:.7}
+  90%{opacity:.7}
+  100%{transform:translateY(112vh) translateX(60px) rotate(420deg);opacity:0}
+}
+
+/* ---------- section frame ---------- */
+section{position:relative;z-index:2}
+.pad{padding:clamp(64px,11vw,130px) 0}
+.section-head{max-width:640px;margin-bottom:clamp(36px,6vw,58px)}
+.section-head h2{font-size:clamp(2.4rem,9vw,4.2rem);margin:.22em 0 .35em}
+.section-head h2 em{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--rose-deep)}
+.section-head p{font-size:1.05rem;font-weight:300;color:var(--ink-soft);max-width:52ch}
+
+/* ---------- story ---------- */
+.story{background:var(--paper-2)}
+.story-grid{display:grid;gap:clamp(30px,6vw,64px);align-items:center}
+@media(min-width:860px){.story-grid{grid-template-columns:1.05fr .95fr}}
+.story-media{position:relative}
+.story-media .main{border-radius:var(--r);box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%}
+.story-media .float{position:absolute;width:42%;border-radius:14px;box-shadow:0 24px 50px -22px rgba(45,58,40,.6);bottom:-26px;left:-18px;aspect-ratio:1;object-fit:cover;border:6px solid var(--paper-2)}
+.badge-rating{position:absolute;top:-22px;right:-10px;background:var(--paper);border-radius:50%;width:110px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 20px 40px -18px rgba(45,58,40,.5);text-align:center}
+.badge-rating .n{font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1;color:var(--ink)}
+.badge-rating .s{color:var(--gold);font-size:.78rem;letter-spacing:.1em}
+.badge-rating small{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:2px}
+.story-copy p{font-size:1.06rem;font-weight:300;color:var(--ink-soft);margin-bottom:1.1em}
+.story-copy p strong{font-weight:500;color:var(--ink)}
+.sig{font-family:'Lora',serif;font-style:italic;font-size:1.5rem;color:var(--rose-deep);margin-top:.4em}
+
+/* ---------- collections ---------- */
+.coll-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:620px){.coll-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.coll-grid{grid-template-columns:repeat(4,1fr)}}
+.coll{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;cursor:pointer;box-shadow:0 18px 40px -28px rgba(45,58,40,.55)}
+.coll img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.coll:hover img{transform:scale(1.08)}
+.coll::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,36,24,.78),rgba(28,36,24,.05) 60%);}
+.coll-txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 20px;color:var(--paper)}
+.coll-txt h3{font-size:1.7rem;font-weight:600}
+.coll-txt p{font-size:.84rem;font-weight:300;opacity:.9;margin-top:2px}
+.coll-txt .go{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:var(--blush);opacity:0;transform:translateY(8px);transition:.4s}
+.coll:hover .coll-txt .go{opacity:1;transform:none}
+@media(min-width:980px){.coll.tall{grid-row:span 1}}
+
+/* mobile: horizontal snap carousel */
+@media(max-width:619px){
+  .coll-grid{
+    display:flex;gap:14px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:10px;
+    /* hide scrollbar */
+    scrollbar-width:none;
+  }
+  .coll-grid::-webkit-scrollbar{display:none}
+  .coll{
+    flex:0 0 72vw;max-width:280px;
+    scroll-snap-align:start;
+    aspect-ratio:3/4;
+  }
+  /* little dot indicators */
+  .coll-dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+  .coll-dots span{width:6px;height:6px;border-radius:50%;background:rgba(45,58,40,.2);transition:background .3s,width .3s}
+  .coll-dots span.active{background:var(--rose);width:18px;border-radius:4px}
+}
+@media(min-width:620px){.coll-dots{display:none}}
+
+/* ---------- gallery ---------- */
+.gallery{background:var(--ink);color:var(--paper)}
+.gallery .section-head h2{color:var(--paper)}
+.gallery .section-head h2 em{color:var(--blush)}
+.gallery .section-head p{color:rgba(247,241,231,.72)}
+.gallery .eyebrow{color:var(--blush)}.gallery .eyebrow::before{background:var(--blush)}
+
+/* bento grid */
+.gal-grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto;
+}
+@media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+.gal-item{position:relative;overflow:hidden;border-radius:14px;cursor:pointer;background:var(--moss)}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1),filter .5s;filter:saturate(.95) brightness(.98)}
+.gal-item:hover img{transform:scale(1.07);filter:saturate(1.2) brightness(1.05)}
+.gal-item::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(212,40,110,.18),rgba(28,36,24,.1));
+  opacity:0;transition:opacity .5s}
+.gal-item:hover::after{opacity:1}
+
+/* grid placement — editorial layout */
+.gal-item:nth-child(1){grid-column:1/3;grid-row:1;aspect-ratio:16/9}
+.gal-item:nth-child(2){grid-column:3;grid-row:1/3;aspect-ratio:auto;min-height:320px}
+.gal-item:nth-child(3){grid-column:4;grid-row:1;aspect-ratio:1}
+.gal-item:nth-child(4){grid-column:1;grid-row:2;aspect-ratio:1}
+.gal-item:nth-child(5){grid-column:2;grid-row:2;aspect-ratio:1}
+.gal-item:nth-child(6){grid-column:4;grid-row:2;aspect-ratio:1}
+.gal-item:nth-child(7){grid-column:1/3;grid-row:3;aspect-ratio:16/8}
+.gal-item:nth-child(8){grid-column:3/5;grid-row:3;aspect-ratio:16/8}
+
+/* mobile: show only first 4, rest hidden until expanded */
+@media(max-width:860px){
+  .gal-item:nth-child(n){grid-column:auto;grid-row:auto;aspect-ratio:1;min-height:0}
+  .gal-item:nth-child(1){grid-column:1/3;aspect-ratio:16/9}
+  .gal-item:nth-child(n+5){display:none}
+  .gal-grid.expanded .gal-item:nth-child(n+5){display:block}
+}
+
+/* expand button — mobile only */
+.gal-expand{display:none}
+@media(max-width:860px){
+  .gal-expand{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;margin-top:14px;padding:15px 22px;
+    background:transparent;border:1px solid rgba(247,241,231,.35);
+    border-radius:999px;color:#fdfaf4;font-family:'Raleway',sans-serif;
+    font-size:.86rem;font-weight:500;letter-spacing:.1em;cursor:pointer;
+    transition:background .3s,border-color .3s;
+  }
+  .gal-expand:hover{background:rgba(247,241,231,.12);border-color:rgba(247,241,231,.6)}
+  .gal-expand svg{width:16px;height:16px;transition:transform .4s}
+  .gal-expand.open svg{transform:rotate(180deg)}
+}
+
+/* stagger-in animation */
+.gal-item{opacity:0;transform:scale(.93) translateY(18px);transition:opacity .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1)}
+.gal-item.in{opacity:1;transform:none}
+.gal-item:nth-child(1){transition-delay:.05s}
+.gal-item:nth-child(2){transition-delay:.12s}
+.gal-item:nth-child(3){transition-delay:.18s}
+.gal-item:nth-child(4){transition-delay:.22s}
+.gal-item:nth-child(5){transition-delay:.28s}
+.gal-item:nth-child(6){transition-delay:.34s}
+.gal-item:nth-child(7){transition-delay:.38s}
+.gal-item:nth-child(8){transition-delay:.44s}
+
+/* insta cta strip */
+.gal-footer{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:30px;flex-wrap:wrap}
+.gal-footer p{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:rgba(247,241,231,.82)}
+
+/* ---------- testimonials ---------- */
+.quotes{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:760px){.quotes{grid-template-columns:repeat(3,1fr)}}
+.quote{background:var(--paper);border:1px solid rgba(45,58,40,.1);border-radius:var(--r);padding:30px 26px;box-shadow:0 18px 40px -34px rgba(45,58,40,.5)}
+.quote .stars{color:var(--gold);letter-spacing:.18em;font-size:.95rem;margin-bottom:14px}
+.quote p{font-family:'Lora',serif;font-style:italic;font-size:1.12rem;color:var(--ink);line-height:1.55}
+.quote .who{margin-top:18px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.stat-row{display:flex;flex-wrap:wrap;gap:14px 46px;margin-top:46px;align-items:center;justify-content:center;text-align:center}
+.stat .n{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,8vw,3.4rem);color:var(--rose-deep);line-height:1}
+.stat .l{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+
+/* ---------- visit / contact ---------- */
+.visit{background:var(--ink);color:var(--paper);overflow:hidden}
+.visit .eyebrow{color:var(--blush)}.visit .eyebrow::before{background:var(--blush)}
+.visit-grid{display:grid;gap:clamp(34px,6vw,60px)}
+@media(min-width:880px){.visit-grid{grid-template-columns:1fr 1fr;align-items:center}}
+.visit h2{font-size:clamp(2.4rem,8vw,4rem);margin:.2em 0 .5em;color:#fdfaf4}
+.visit h2 em{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--blush)}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:22px;margin:30px 0}
+.info-list li{display:flex;gap:16px;align-items:flex-start}
+.info-list .ic{flex:0 0 auto;width:42px;height:42px;border-radius:50%;border:1px solid rgba(247,241,231,.28);display:flex;align-items:center;justify-content:center}
+.info-list .ic svg{width:19px;height:19px;color:var(--blush)}
+.info-list .k{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,241,231,.6);margin-bottom:2px}
+.info-list .v{font-size:1.1rem;color:#fdfaf4;font-weight:400}
+.info-list a.v:hover{color:var(--blush)}
+.visit-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px}
+.visit .btn-ghost{border-color:rgba(247,241,231,.45);color:#fdfaf4}
+.visit .btn-ghost:hover{background:#fdfaf4;color:var(--ink)}
+.map-card{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);position:relative;min-height:360px}
+.map-card iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.25) sepia(.12)}
+
+/* ---------- footer ---------- */
+footer{background:var(--paper);padding:56px 0 38px;text-align:center}
+.foot-brand{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--ink)}
+.foot-sub{font-family:'Lora',serif;font-style:italic;color:var(--rose-deep);margin:6px 0 22px}
+.socials{display:flex;gap:16px;justify-content:center;margin-bottom:26px}
+.socials a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(45,58,40,.2);display:flex;align-items:center;justify-content:center;transition:.35s}
+.socials a:hover{background:var(--ink);color:var(--paper);transform:translateY(-3px)}
+.socials svg{width:20px;height:20px}
+.foot-meta{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em;line-height:1.9}
+.foot-meta a:hover{color:var(--rose-deep)}
+
+/* floating mobile WA button */
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -10px rgba(30,178,90,.7);animation:pulse 2.6s infinite}
+.fab svg{width:30px;height:30px}
+@keyframes pulse{0%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 0 rgba(30,178,90,.5)}70%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 16px rgba(30,178,90,0)}100%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 0 rgba(30,178,90,0)}}
+@media(min-width:920px){.fab{display:none}}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .hero-img img{transform:none}
+}
+
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Lara Flowers home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <g stroke="currentColor" stroke-width="1.6" fill="none">
+          <path d="M24 26c0-6 0-10 0-16" stroke="#3f5235"/>
+          <path d="M24 30c-4 2-8 1-9-3 4-2 8 0 9 3Z" fill="#3f5235" stroke="#3f5235"/>
+          <path d="M24 33c4 2 8 0 9-4-4-2-8 1-9 4Z" fill="#3f5235" stroke="#3f5235"/>
+        </g>
+        <g fill="#c0726a">
+          <ellipse cx="24" cy="13" rx="4.4" ry="6.2"/>
+          <ellipse cx="24" cy="13" rx="4.4" ry="6.2" transform="rotate(60 24 13)"/>
+          <ellipse cx="24" cy="13" rx="4.4" ry="6.2" transform="rotate(120 24 13)"/>
+          <circle cx="24" cy="13" r="2.6" fill="#b8924e"/>
+        </g>
+      </svg>
+      Lara Flowers
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#story">Our Story</a>
+      <a href="#collections">Creations</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#love">Reviews</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-wa nav-cta" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20love%20to%20order%20a%20bouquet." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.45 1.34 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.02.89 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.69-.17 1.37Z"/></svg>
+      Order on WhatsApp
+    </a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1600&q=80" alt="A lush handcrafted bouquet of pink and white seasonal blooms" />
+  </div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow reveal">Tripoli-Mina · North Lebanon</span>
+    <p class="arabic reveal d1">زهور من القلب</p>
+    <h1 class="reveal d1">Flowers that<br><em>tell your story</em></h1>
+    <p class="lede reveal d2">Bespoke bouquets, wedding florals and gifts — arranged petal by petal in our little shop near the Rachid Karami fairground.</p>
+    <div class="hero-actions reveal d3">
+      <a class="btn btn-wa" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20love%20to%20order%20a%20bouquet." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.45 1.34 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.02.89 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.69-.17 1.37Z"/></svg>
+        Order a bouquet
+      </a>
+      <a class="btn btn-ghost" href="#collections">Explore creations</a>
+    </div>
+    <div class="hero-trust reveal d4" aria-label="Rated 5 out of 5 on Google from 79 reviews">
+      <span class="trust-stars">★★★★★</span>
+      <span class="trust-divider"></span>
+      <span class="trust-text"><strong>5.0</strong> · 79 reviews on Google</span>
+      <svg class="trust-google" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll<span></span></div>
+</section>
+
+<!-- ===== STORY ===== -->
+<section class="story pad" id="story">
+  <div class="wrap story-grid">
+    <div class="story-media reveal">
+      <img class="main" src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=900&q=80" alt="Florist's hands tying a ribbon around a fresh bouquet" />
+      <img class="float" src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=500&q=80" alt="Close-up of soft pink roses" />
+      <div class="badge-rating" aria-label="Rated 5.0 out of 5 from 79 Google reviews">
+        <span class="n">5.0</span>
+        <span class="s">★★★★★</span>
+        <small>79 reviews</small>
+      </div>
+    </div>
+    <div class="story-copy reveal d1">
+      <span class="eyebrow">Our little story</span>
+      <h2 style="font-size:clamp(2.2rem,8vw,3.6rem);margin:.2em 0 .5em">Handmade, <em class="serif-it" style="color:var(--rose-deep)">from the heart</em></h2>
+      <p>At <strong>Lara Flowers</strong>, every arrangement begins with a feeling — a love letter, a celebration, a quiet thank you. We listen to your story, then choose each stem to tell it.</p>
+      <p>For years our neighbours in Tripoli have trusted us with their most tender moments: first dates and fiftieth anniversaries, newborns and farewells. Nothing leaves our table that we wouldn't be proud to gift ourselves.</p>
+      <p>No two bouquets are ever the same — because no two stories are.</p>
+      <p class="sig">— with love, Lara</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLLECTIONS ===== -->
+<section class="pad" id="collections">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we create</span>
+      <h2>Blooms for every <em>occasion</em></h2>
+      <p>From a single wrapped rose to a whole wedding in petals — tell us the moment, and we'll arrange the rest.</p>
+    </div>
+    <div class="coll-grid" id="collGrid">
+      <a class="coll reveal" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20like%20a%20custom%20bouquet." target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?auto=format&fit=crop&w=700&q=80" alt="Bespoke mixed bouquet wrapped in kraft paper" />
+        <div class="coll-txt"><h3>Signature Bouquets</h3><p>Personalised, hand-tied, just for you</p><span class="go">Order now →</span></div>
+      </a>
+      <a class="coll reveal d1" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'm%20planning%20a%20wedding%20and%20need%20florals." target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80" alt="Elegant white bridal bouquet" />
+        <div class="coll-txt"><h3>Weddings</h3><p>Bridal bouquets &amp; ceremony florals</p><span class="go">Enquire →</span></div>
+      </a>
+      <a class="coll reveal d2" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20like%20a%20gift%20arrangement." target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=700&q=80" alt="Boxed flower gift arrangement" />
+        <div class="coll-txt"><h3>Gifts &amp; Boxes</h3><p>Thoughtful surprises, beautifully boxed</p><span class="go">Order now →</span></div>
+      </a>
+      <a class="coll reveal d3" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20like%20flowers%20for%20an%20occasion." target="_blank" rel="noopener">
+        <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&fit=crop&w=700&q=80" alt="Colourful celebration arrangement" />
+        <div class="coll-txt"><h3>Celebrations</h3><p>Birthdays, anniversaries &amp; more</p><span class="go">Order now →</span></div>
+      </a>
+    </div>
+    <div class="coll-dots" id="collDots">
+      <span class="active"></span><span></span><span></span><span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery pad" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">From our table</span>
+      <h2>A little <em>garden</em> of our work</h2>
+      <p>A glimpse of recent arrangements. See more daily on our Instagram, @laraa_flowers.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=900&q=80" alt="Bouquet of garden roses" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=700&q=80" alt="Florist hands arranging flowers" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80" alt="Pink peonies arrangement" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1469259943454-aa100abba749?auto=format&fit=crop&w=600&q=80" alt="Wildflower bunch" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&fit=crop&w=600&q=80" alt="Dried floral arrangement" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=600&q=80" alt="Romantic red rose bouquet" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=80" alt="Tulip bouquet in vase" loading="lazy" /></div>
+      <div class="gal-item"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Hand holding a delicate bouquet" loading="lazy" /></div>
+    </div>
+    <button class="gal-expand" id="galExpand" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      View all photos
+    </button>
+    <div class="gal-footer">
+      <p>See more every day on our Instagram</p>
+      <a class="btn btn-ghost" style="border-color:rgba(247,241,231,.4);color:#fdfaf4" href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener">@laraa_flowers →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="pad" id="love">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow" style="justify-content:center">Loved in Tripoli</span>
+      <h2>Kind words from <em>our people</em></h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>"The most beautiful bouquet I have ever received in my life. Lara understood exactly the feeling I wanted to give."</p>
+        <figcaption class="who">— Rana K.</figcaption>
+      </figure>
+      <figure class="quote reveal d1">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>"They did the flowers for my wedding and everyone is still talking about them. Pure art, with so much heart."</p>
+        <figcaption class="who">— Joelle &amp; Tarek</figcaption>
+      </figure>
+      <figure class="quote reveal d2">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <p>"Always fresh, always on time, always stunning. My go-to for every occasion in Tripoli."</p>
+        <figcaption class="who">— Mahmoud S.</figcaption>
+      </figure>
+    </div>
+    <div class="stat-row reveal d1">
+      <div class="stat"><div class="n">5.0★</div><div class="l">Google Rating</div></div>
+      <div class="stat"><div class="n">79+</div><div class="l">Happy Reviews</div></div>
+      <div class="stat"><div class="n">2,400+</div><div class="l">Instagram Family</div></div>
+      <div class="stat"><div class="n">∞</div><div class="l">Stories Told</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT / CONTACT ===== -->
+<section class="visit pad" id="visit">
+  <div class="wrap visit-grid">
+    <div class="reveal">
+      <span class="eyebrow">Come say hello</span>
+      <h2>Visit us in <em>Tripoli-Mina</em></h2>
+      <p style="color:rgba(247,241,231,.82);font-weight:300;max-width:46ch">Pop in for a chat and a consultation, or simply send us a message — we reply quickly and we love a good flower story.</p>
+      <ul class="info-list">
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <span><span class="k">Find us</span><span class="v">Rachid Karami area (Maarad),<br>Tripoli-Mina, North Lebanon</span></span>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span><span class="k">Opening hours</span><span class="v">Open daily · closes 8:30 PM</span></span>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+          <span><span class="k">Call or WhatsApp</span><a class="v" href="tel:+96170645214">70 645 214</a> &nbsp;·&nbsp; <a class="v" href="tel:+9613641233">03 641 233</a></span>
+        </li>
+      </ul>
+      <div class="visit-actions">
+        <a class="btn btn-wa" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20love%20to%20order%20a%20bouquet." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.45 1.34 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.02.89 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.69-.17 1.37Z"/></svg>
+          Message us
+        </a>
+        <a class="btn btn-ghost" href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener">See Instagram</a>
+      </div>
+    </div>
+    <div class="map-card reveal d1">
+      <iframe title="Map to Lara Flowers, Tripoli-Mina" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Tripoli+Mina+Rachid+Karami+Maarad+Lebanon&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">Lara Flowers</div>
+    <div class="foot-sub">زهور من القلب · flowers from the heart</div>
+    <div class="socials">
+      <a href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://wa.me/96170645214" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.45 1.34 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.02.89 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.69-.17 1.37Z"/></svg>
+      </a>
+      <a href="tel:+96170645214" aria-label="Call">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+      </a>
+    </div>
+    <div class="foot-meta">
+      Rachid Karami area · Tripoli-Mina, North Lebanon<br>
+      Open daily, closes 8:30 PM · <a href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener">@laraa_flowers</a><br>
+      © <span id="yr"></span> Lara Flowers · Made with petals &amp; love
+    </div>
+  </div>
+</footer>
+
+<!-- floating WhatsApp (mobile) -->
+<a class="fab" href="https://wa.me/96170645214?text=Hi%20Lara%20Flowers!%20I'd%20love%20to%20order%20a%20bouquet." target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 1.76.46 3.45 1.34 4.95L2 22l5.3-1.39c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.66-.61-2.92-1.26-4.82-4.2-4.97-4.4-.15-.2-1.19-1.58-1.19-3.01s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.82 2.02.89 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.35 1.45.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.49.22.56.34.07.12.07.69-.17 1.37Z"/></svg>
+</a>
+
+<script>
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // sticky nav
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // gallery bento stagger
+  const galIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); galIO.unobserve(e.target);} });
+  },{threshold:.08, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.gal-item').forEach(el=>galIO.observe(el));
+
+  // gallery expand (mobile)
+  const galExpand = document.getElementById('galExpand');
+  const galGrid = document.querySelector('.gal-grid');
+  if(galExpand && galGrid){
+    galExpand.addEventListener('click', ()=>{
+      const open = galGrid.classList.toggle('expanded');
+      galExpand.setAttribute('aria-expanded', open);
+      galExpand.classList.toggle('open', open);
+      galExpand.innerHTML = open
+        ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg> Show less`
+        : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg> View all photos`;
+      // observe newly visible items
+      if(open) document.querySelectorAll('.gal-item:nth-child(n+5)').forEach(el=>galIO.observe(el));
+    });
+  }
+
+  // collections carousel dots (mobile)
+  const cg = document.getElementById('collGrid');
+  const dots = document.querySelectorAll('#collDots span');
+  if(cg && dots.length){
+    cg.addEventListener('scroll', ()=>{
+      const idx = Math.round(cg.scrollLeft / (cg.offsetWidth * 0.72));
+      dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+    }, {passive:true});
+  }
+
+  // drifting petals
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const colors = ['#c0726a','#e9d6cc','#d98c84','#b8924e'];
+    const petalSVG = (c)=>`<svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2C8 6 4 8 4 13a8 8 0 0 0 16 0c0-5-4-7-8-11Z" fill="${c}"/></svg>`;
+    const make = ()=>{
+      const p = document.createElement('div');
+      p.className='petal';
+      const c = colors[Math.floor(Math.random()*colors.length)];
+      p.innerHTML = petalSVG(c);
+      const size = 8 + Math.random()*16;
+      p.style.left = Math.random()*100 + 'vw';
+      p.style.width = size + 'px';
+      const dur = 9 + Math.random()*9;
+      p.style.animationDuration = dur + 's';
+      p.style.opacity = .55;
+      p.firstChild.style.width='100%'; p.firstChild.style.height='auto';
+      p.firstChild.style.transform = `rotate(${Math.random()*360}deg)`;
+      document.body.appendChild(p);
+      setTimeout(()=>p.remove(), dur*1000+500);
+    };
+    setInterval(make, 1300);
+    for(let i=0;i<4;i++) setTimeout(make, i*500);
+  }
+</script>
+</body>
+</html>
