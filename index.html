@@ -39,10 +39,11 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* grain + warm vignette overlay */
+/* grain overlay — static PNG tile, no SVG filter repaint */
 body::before{
-  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAADFBMVEUAAAAAAAAAAAAAAAA16TeqAAAABHRSTlMzMzMzlr8zGQAAAEFJREFUeAFjYBgFgx8AAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAFPAAIAACQAAAAASUVORK5CYII=");
+  will-change:transform;
 }
 
 img{display:block;max-width:100%}
@@ -76,8 +77,9 @@ h1,h2,h3,.display{font-family:'Cormorant Garamond',serif;font-weight:500;line-he
 header{
   position:fixed;top:0;left:0;right:0;z-index:50;
   transition:background .4s,box-shadow .4s,padding .4s;padding:20px 0;
+  will-change:padding;
 }
-header.scrolled{background:rgba(247,241,231,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(45,58,40,.08);padding:12px 0}
+header.scrolled{background:rgba(247,241,231,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(45,58,40,.08);padding:12px 0}
 .nav{display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;letter-spacing:.02em;color:#fdfaf4;transition:color .4s}
 .brand .mark{width:38px;height:38px;flex:0 0 auto}
@@ -98,7 +100,7 @@ header.scrolled .nav-links a:hover{color:var(--ink)}
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
 .hero-img{position:absolute;inset:0;z-index:-2}
-.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 18s ease-out forwards}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 18s ease-out forwards;will-change:transform}
 @keyframes kenburns{to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(to top,rgba(28,36,24,.82) 0%,rgba(28,36,24,.32) 42%,rgba(28,36,24,.12) 75%,rgba(28,36,24,.35) 100%);}
@@ -171,7 +173,7 @@ section{position:relative;z-index:2}
 @media(min-width:620px){.coll-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:980px){.coll-grid{grid-template-columns:repeat(4,1fr)}}
 .coll{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;cursor:pointer;box-shadow:0 18px 40px -28px rgba(45,58,40,.55)}
-.coll img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.coll img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1);will-change:transform}
 .coll:hover img{transform:scale(1.08)}
 .coll::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(28,36,24,.78),rgba(28,36,24,.05) 60%);}
 .coll-txt{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 20px;color:var(--paper)}
@@ -328,8 +330,8 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
 @media(min-width:920px){.fab{display:none}}
 
 /* reveal on scroll */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
+.reveal.in{opacity:1;transform:none;will-change:auto}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
 
 @media(prefers-reduced-motion:reduce){
@@ -380,7 +382,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
   <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1600&q=80" alt="A lush handcrafted bouquet of pink and white seasonal blooms" />
+    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=75" alt="A lush handcrafted bouquet of pink and white seasonal blooms" fetchpriority="high" decoding="async" />
   </div>
   <div class="wrap hero-inner">
     <span class="eyebrow reveal">Tripoli-Mina · North Lebanon</span>
@@ -498,18 +500,18 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
     <div class="quotes">
       <figure class="quote reveal">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>"The most beautiful bouquet I have ever received in my life. Lara understood exactly the feeling I wanted to give."</p>
-        <figcaption class="who">— Rana K.</figcaption>
+        <p>"Beautiful flowers and incredible service. I ordered all the way from overseas and it couldn't have been easier — they coordinated everything directly with the recipient, and payment via OMT wallet was seamless. Absolutely flawless."</p>
+        <figcaption class="who">— A customer abroad</figcaption>
       </figure>
       <figure class="quote reveal d1">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>"They did the flowers for my wedding and everyone is still talking about them. Pure art, with so much heart."</p>
-        <figcaption class="who">— Joelle &amp; Tarek</figcaption>
+        <p>"Ordered for a friend in Tripoli from abroad and paid via Whish — the whole thing was handled over WhatsApp. They sent photos of bouquets to choose from and even wrote the card for us. Exceptional service from start to finish."</p>
+        <figcaption class="who">— A happy customer</figcaption>
       </figure>
       <figure class="quote reveal d2">
         <div class="stars" aria-hidden="true">★★★★★</div>
-        <p>"Always fresh, always on time, always stunning. My go-to for every occasion in Tripoli."</p>
-        <figcaption class="who">— Mahmoud S.</figcaption>
+        <p>"I'm based in the US and was still able to send a gorgeous gift to someone special in Tripoli. The team at Lara Flowers made it so easy and personal. I'll definitely be ordering again."</p>
+        <figcaption class="who">— A customer from the USA</figcaption>
       </figure>
     </div>
     <div class="stat-row reveal d1">
@@ -535,7 +537,13 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
         </li>
         <li>
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-          <span><span class="k">Opening hours</span><span class="v">Open daily · closes 8:30 PM</span></span>
+          <span><span class="k">Opening hours</span><span class="v" style="font-size:.95rem;line-height:1.7">
+            Mon – Tue &nbsp;&nbsp;8:45 AM – 9:00 PM<br>
+            Wed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:45 AM – 8:30 PM<br>
+            Thu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:45 AM – 8:30 PM<br>
+            Fri – Sat &nbsp;&nbsp;&nbsp;8:45 AM – 11:00 PM<br>
+            Sun &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8:45 AM – 10:00 PM
+          </span></span>
         </li>
         <li>
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 13l2 5v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
@@ -575,7 +583,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
     </div>
     <div class="foot-meta">
       Rachid Karami area · Tripoli-Mina, North Lebanon<br>
-      Open daily, closes 8:30 PM · <a href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener">@laraa_flowers</a><br>
+      Open daily from 8:45 AM · <a href="https://instagram.com/laraa_flowers" target="_blank" rel="noopener">@laraa_flowers</a><br>
       © <span id="yr"></span> Lara Flowers · Made with petals &amp; love
     </div>
   </div>
@@ -633,29 +641,27 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
     }, {passive:true});
   }
 
-  // drifting petals
+  // drifting petals — capped pool, no DOM thrash
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!reduce){
-    const colors = ['#c0726a','#e9d6cc','#d98c84','#b8924e'];
-    const petalSVG = (c)=>`<svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2C8 6 4 8 4 13a8 8 0 0 0 16 0c0-5-4-7-8-11Z" fill="${c}"/></svg>`;
+    const MAX = 5;
+    let active = 0;
+    const colors = ['#d4286e','#f5c6dc','#d98c84','#c47d2a'];
+    const petalSVG = (c)=>`<svg width="20" height="20" viewBox="0 0 24 24" style="width:100%;height:auto;transform:rotate(${Math.random()*360}deg)"><path d="M12 2C8 6 4 8 4 13a8 8 0 0 0 16 0c0-5-4-7-8-11Z" fill="${c}"/></svg>`;
     const make = ()=>{
+      if(active >= MAX) return;
+      active++;
       const p = document.createElement('div');
-      p.className='petal';
-      const c = colors[Math.floor(Math.random()*colors.length)];
-      p.innerHTML = petalSVG(c);
-      const size = 8 + Math.random()*16;
-      p.style.left = Math.random()*100 + 'vw';
-      p.style.width = size + 'px';
-      const dur = 9 + Math.random()*9;
-      p.style.animationDuration = dur + 's';
-      p.style.opacity = .55;
-      p.firstChild.style.width='100%'; p.firstChild.style.height='auto';
-      p.firstChild.style.transform = `rotate(${Math.random()*360}deg)`;
+      p.className = 'petal';
+      p.innerHTML = petalSVG(colors[Math.floor(Math.random()*colors.length)]);
+      const size = 9 + Math.random()*13;
+      const dur = 11 + Math.random()*8;
+      p.style.cssText = `left:${Math.random()*100}vw;width:${size}px;animation-duration:${dur}s`;
       document.body.appendChild(p);
-      setTimeout(()=>p.remove(), dur*1000+500);
+      setTimeout(()=>{ p.remove(); active--; }, dur*1000+300);
     };
-    setInterval(make, 1300);
-    for(let i=0;i<4;i++) setTimeout(make, i*500);
+    setInterval(make, 2800);
+    setTimeout(make, 400); setTimeout(make, 1400);
   }
 </script>
 </body>
