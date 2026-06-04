@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#2d3a28" />
 <title>Lara Flowers — Bespoke Bouquets in Tripoli, Lebanon</title>
 <meta name="description" content="Lara Flowers — bespoke bouquets, wedding florals and gifts handcrafted in Tripoli-Mina, North Lebanon. Rated 5.0 ★. Order easily on WhatsApp." />
@@ -355,7 +355,7 @@ section{position:relative;z-index:2}
 .map-card iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.25) sepia(.12)}
 
 /* ---------- footer ---------- */
-footer{background:var(--paper);padding:56px 0 38px;text-align:center}
+footer{background:var(--paper);padding:56px 0 calc(38px + env(safe-area-inset-bottom));text-align:center}
 .foot-brand{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--ink)}
 .foot-sub{font-family:'Lora',serif;font-style:italic;color:var(--rose-deep);margin:6px 0 22px}
 .socials{display:flex;gap:16px;justify-content:center;margin-bottom:26px}
@@ -366,7 +366,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
 .foot-meta a:hover{color:var(--rose-deep)}
 
 /* floating mobile WA button */
-.fab{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -10px rgba(30,178,90,.7);animation:pulse 2.6s infinite}
+.fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px -10px rgba(30,178,90,.7);animation:pulse 2.6s infinite}
 .fab svg{width:30px;height:30px}
 @keyframes pulse{0%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 0 rgba(30,178,90,.5)}70%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 16px rgba(30,178,90,0)}100%{box-shadow:0 16px 34px -10px rgba(30,178,90,.7),0 0 0 0 rgba(30,178,90,0)}}
 @media(min-width:920px){.fab{display:none}}
