@@ -105,33 +105,36 @@ header.scrolled .nav-links a:hover{color:var(--ink)}
 .hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);animation:kenburns 18s ease-out forwards;will-change:transform}
 @keyframes kenburns{to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(to top,rgba(28,36,24,.82) 0%,rgba(28,36,24,.32) 42%,rgba(28,36,24,.12) 75%,rgba(28,36,24,.35) 100%);}
+  background:linear-gradient(to top,rgba(12,18,10,.96) 0%,rgba(12,18,10,.72) 35%,rgba(12,18,10,.50) 62%,rgba(12,18,10,.60) 100%);}
 .hero-inner{padding-bottom:max(54px,7vh);padding-top:130px;color:var(--paper);width:100%}
 .hero .eyebrow{color:#f0d9d1}
 .hero .eyebrow::before{background:#f0d9d1}
-.hero h1{font-size:clamp(3.3rem,15vw,8.8rem);color:#fdfaf4;margin:.18em 0 .14em;max-width:14ch}
-.hero h1 em{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--blush)}
-.hero .arabic{font-size:clamp(1.4rem,6vw,2.4rem);font-family:'Lora',serif;color:#f0d9d1;direction:rtl;letter-spacing:0;opacity:.9;margin-bottom:.2em}
-.hero p.lede{max-width:46ch;font-size:clamp(1rem,4.2vw,1.18rem);font-weight:300;color:rgba(253,250,244,.92);margin-bottom:30px}
+.hero h1{font-size:clamp(3.3rem,15vw,8.8rem);color:#fff;margin:.18em 0 .14em;max-width:14ch;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+.hero h1 em{font-family:'Lora',serif;font-style:italic;font-weight:400;color:var(--blush);text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.hero .arabic{font-size:clamp(1.4rem,6vw,2.4rem);font-family:'Lora',serif;color:#fce8f0;direction:rtl;letter-spacing:0;margin-bottom:.2em;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hero p.lede{max-width:46ch;font-size:clamp(1rem,4.2vw,1.18rem);font-weight:400;color:rgba(255,255,255,.95);margin-bottom:30px;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero .eyebrow{text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
 .hero .btn-ghost{border-color:rgba(253,250,244,.5);color:#fdfaf4}
 .hero .btn-ghost:hover{background:#fdfaf4;color:var(--ink)}
 /* hero trust badge */
 .hero-trust{
   display:inline-flex;align-items:center;gap:10px;
-  margin-top:22px;
-  padding:11px 18px 11px 16px;
-  background:rgba(253,250,244,.13);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(253,250,244,.28);
+  margin-top:24px;
+  padding:12px 20px 12px 16px;
+  background:rgba(12,18,10,.62);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.22);
   border-radius:999px;
-  color:#fdfaf4;
-  font-size:.88rem;font-weight:400;
+  color:#fff;
+  font-size:.9rem;font-weight:400;
   width:fit-content;
+  box-shadow:0 4px 24px rgba(0,0,0,.35);
 }
-.trust-stars{color:#f5c842;letter-spacing:.1em;font-size:1rem;line-height:1}
-.trust-divider{width:1px;height:16px;background:rgba(253,250,244,.35);flex-shrink:0}
-.trust-text strong{font-weight:600}
+.trust-stars{color:#f5c842;letter-spacing:.08em;font-size:1.05rem;line-height:1;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.trust-divider{width:1px;height:17px;background:rgba(255,255,255,.3);flex-shrink:0}
+.trust-text{font-size:.88rem;letter-spacing:.01em}
+.trust-text strong{font-weight:700}
 .trust-google{width:18px;height:18px;flex-shrink:0}
 
 .scroll-cue{position:absolute;bottom:22px;right:24px;z-index:3;display:flex;align-items:center;gap:10px;color:rgba(253,250,244,.8);font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;writing-mode:vertical-rl}
@@ -372,7 +375,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
   <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=75" alt="A lush handcrafted bouquet of pink and white seasonal blooms" fetchpriority="high" decoding="async" />
+    <img src="https://images.unsplash.com/photo-1444930694458-01babf71870c?auto=format&fit=crop&w=1200&q=75" alt="A lush handcrafted bouquet of pink and white seasonal blooms" fetchpriority="high" decoding="async" />
   </div>
   <div class="wrap hero-inner">
     <span class="eyebrow reveal">Tripoli-Mina · North Lebanon</span>
@@ -386,7 +389,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
       </a>
       <a class="btn btn-ghost" href="#collections">Explore creations</a>
     </div>
-    <div class="hero-trust reveal d4" aria-label="Rated 5 out of 5 on Google from 79 reviews">
+    <div class="hero-trust" aria-label="Rated 5 out of 5 on Google from 79 reviews">
       <span class="trust-stars">★★★★★</span>
       <span class="trust-divider"></span>
       <span class="trust-text"><strong>5.0</strong> · 79 reviews on Google</span>
@@ -400,7 +403,7 @@ footer{background:var(--paper);padding:56px 0 38px;text-align:center}
 <section class="story pad" id="story">
   <div class="wrap story-grid">
     <div class="story-media reveal">
-      <img class="main" src="https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=900&q=80" alt="Florist's hands tying a ribbon around a fresh bouquet" />
+      <img class="main" src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=900&q=80" alt="A romantic arrangement of deep red roses" />
       <img class="float" src="https://images.unsplash.com/photo-1457089328109-e5d9bd499191?auto=format&fit=crop&w=500&q=80" alt="Close-up of soft pink roses" />
       <div class="badge-rating" aria-label="Rated 5.0 out of 5 from 79 Google reviews">
         <span class="n">5.0</span>
