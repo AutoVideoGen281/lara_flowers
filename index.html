@@ -104,9 +104,9 @@ header.scrolled .nav-links a:hover{color:var(--ink)}
 .hero-img{position:absolute;inset:0;z-index:-2}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.06);animation:kenburns 20s ease-out forwards;will-change:transform}
 @keyframes kenburns{to{transform:scale(1)}}
-/* mobile: keep the tulip filling & centered, blend edges into a soft dark backdrop */
+/* mobile: portrait crop fills the tall frame with the whole bloom centered */
 @media(max-width:700px){
-  .hero-img img{object-fit:cover;object-position:center 32%;transform:scale(1.02);animation:none}
+  .hero-img img{object-fit:cover;object-position:center 30%;transform:none;animation:none}
   .hero-img{background:#1a1712}
 }
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
@@ -381,7 +381,10 @@ footer{background:var(--paper);padding:56px 0 calc(38px + env(safe-area-inset-bo
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
   <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1400&q=78" alt="A delicate pink tulip in soft light" fetchpriority="high" decoding="async" />
+    <picture>
+      <source media="(max-width:700px)" srcset="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=820&h=1500&q=78" />
+      <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1400&q=78" alt="A delicate pink tulip in soft light" fetchpriority="high" decoding="async" />
+    </picture>
   </div>
   <div class="wrap hero-inner">
     <span class="eyebrow reveal">Tripoli-Mina · North Lebanon</span>
